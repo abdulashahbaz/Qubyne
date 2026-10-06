@@ -51,6 +51,9 @@
   --accent-soft: color-mix(in srgb, var(--accent) 14%, transparent);
   --accent-line: color-mix(in srgb, var(--accent) 38%, transparent);
 
+  /* Functional: form errors only — not a second brand color */
+  --danger: #ff8a80;
+
   /* Effects */
   --glow: color-mix(in srgb, var(--accent) 26%, transparent);
   --grid-line: rgb(255 255 255 / 0.045);
@@ -79,6 +82,8 @@
   --accent-ink: #ffffff;
   --accent-soft: color-mix(in srgb, var(--accent) 9%, transparent);
   --accent-line: color-mix(in srgb, var(--accent) 38%, transparent);
+
+  --danger: #b42318;
 
   --glow: color-mix(in srgb, var(--accent) 16%, transparent);
   --grid-line: rgb(14 14 16 / 0.055);
@@ -116,6 +121,8 @@
   --color-accent-ink: var(--accent-ink);
   --color-accent-soft: var(--accent-soft);
   --color-accent-line: var(--accent-line);
+
+  --color-danger: var(--danger);
 
   --color-header: var(--header-bg);
 
@@ -184,7 +191,6 @@
   --spacing-gutter: clamp(1.25rem, 0.75rem + 2.2vw, 2.5rem); /* page side padding */
 
   --container-site: 76rem; /* max content width  → max-w-site */
-  --container-prose: 42rem; /* readable text width → max-w-prose */
 
   --radius-control: 0.75rem; /* buttons, inputs   → rounded-control */
   --radius-card: 1.25rem; /* cards, panels     → rounded-card */
