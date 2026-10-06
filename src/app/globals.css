@@ -63,7 +63,7 @@
   }
 
   /* Soft accent glow. Position it with utilities. */
-  .bg-glow {
+  .glow-radial {
     background: radial-gradient(closest-side, var(--glow), transparent);
   }
 
