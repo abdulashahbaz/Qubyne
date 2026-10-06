@@ -1,0 +1,49 @@
+import { ButtonLink } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/ui/reveal";
+import { Eyebrow } from "@/components/ui/section-heading";
+import { HeroVisual } from "./hero-visual";
+
+export function Hero() {
+  return (
+    <section aria-labelledby="hero-title" className="relative overflow-hidden pt-16 pb-section sm:pt-24">
+      <div aria-hidden="true" className="bg-grid pointer-events-none absolute inset-x-0 top-0 h-[44rem]" />
+      <div
+        aria-hidden="true"
+        className="glow-radial pointer-events-none absolute top-[-20rem] left-1/2 h-[40rem] w-[min(84rem,170vw)] -translate-x-1/2"
+      />
+
+      <Container className="relative">
+        <Reveal>
+          <Eyebrow>Product studio</Eyebrow>
+        </Reveal>
+
+        <Reveal delay={80}>
+          <h1 id="hero-title" className="mt-6 max-w-5xl text-display">
+            Software products <span className="text-accent">worth switching to.</span>
+          </h1>
+        </Reveal>
+
+        <Reveal delay={160}>
+          <p className="mt-8 max-w-2xl text-lead text-ink-muted">
+            Qubyne designs, builds and launches modern software for companies: SaaS platforms, creative tools and
+            productivity apps. One senior team, from first sketch to public launch.
+          </p>
+        </Reveal>
+
+        <Reveal delay={240} className="mt-10 flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href="/contact" size="lg" arrow>
+            Start a project
+          </ButtonLink>
+          <ButtonLink href="/work" size="lg" variant="secondary">
+            See our work
+          </ButtonLink>
+        </Reveal>
+
+        <Reveal delay={320}>
+          <HeroVisual />
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
