@@ -91,6 +91,18 @@
     }
   }
 
+  /* Entrance for first-viewport content. Pure CSS (no JS, no hydration wait), so
+     headline text starts painting on the first frame and never delays LCP. */
+  [data-enter] {
+    animation: enter var(--duration-reveal) var(--ease-smooth) var(--reveal-delay, 0ms) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-enter] {
+      animation: none;
+    }
+  }
+
   /* Gentle idle float for decorative hero cards. */
   .float-slow {
     animation: float-slow 9s ease-in-out infinite;
@@ -100,6 +112,13 @@
     .float-slow {
       animation: none;
     }
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
   }
 }
 

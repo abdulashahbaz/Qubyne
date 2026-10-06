@@ -19,11 +19,11 @@ export function PageHero({ eyebrow, title, lead, children }: PageHeroProps) {
         className="glow-radial pointer-events-none absolute top-[-22rem] left-1/2 h-[36rem] w-[min(76rem,170vw)] -translate-x-1/2"
       />
       <Container className="relative">
-        <Reveal>
+        <Reveal onLoad>
           <SectionHeading as="h1" id="page-title" eyebrow={eyebrow} title={title} lead={lead} className="max-w-4xl" />
         </Reveal>
         {children && (
-          <Reveal delay={120} className="mt-10">
+          <Reveal onLoad delay={100} className="mt-10">
             {children}
           </Reveal>
         )}

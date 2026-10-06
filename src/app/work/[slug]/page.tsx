@@ -61,7 +61,7 @@ export default async function CaseStudyPage({ params }: Params) {
             className="glow-radial pointer-events-none absolute top-[-22rem] left-1/2 h-[36rem] w-[min(76rem,170vw)] -translate-x-1/2"
           />
           <Container className="relative">
-            <Reveal>
+            <Reveal onLoad>
               <Link
                 href="/work"
                 className="inline-flex items-center gap-2 text-[0.9375rem] font-medium text-ink-muted transition-colors duration-(--duration-base) hover:text-ink"
@@ -70,14 +70,14 @@ export default async function CaseStudyPage({ params }: Params) {
                 All work
               </Link>
             </Reveal>
-            <Reveal delay={80}>
+            <Reveal onLoad delay={60}>
               <Eyebrow className="mt-10">
                 Case study · {study.category}
               </Eyebrow>
               <h1 className="mt-5 text-display">{study.title}</h1>
               <p className="mt-8 max-w-3xl text-lead text-ink-muted">{study.tagline}</p>
             </Reveal>
-            <Reveal delay={160}>
+            <Reveal onLoad delay={120}>
               <dl className="mt-12 grid gap-x-8 gap-y-6 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-4">
                 {facts.map((f) => (
                   <div key={f.label}>

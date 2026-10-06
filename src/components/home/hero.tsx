@@ -14,24 +14,24 @@ export function Hero() {
       />
 
       <Container className="relative">
-        <Reveal>
+        <Reveal onLoad>
           <Eyebrow>Product studio</Eyebrow>
         </Reveal>
 
-        <Reveal delay={80}>
+        <Reveal onLoad delay={60}>
           <h1 id="hero-title" className="mt-6 max-w-5xl text-display">
             Software products <span className="text-accent">worth switching to.</span>
           </h1>
         </Reveal>
 
-        <Reveal delay={160}>
+        <Reveal onLoad delay={120}>
           <p className="mt-8 max-w-2xl text-lead text-ink-muted">
             Qubyne designs, builds and launches modern software for companies: SaaS platforms, creative tools and
             productivity apps. One senior team, from first sketch to public launch.
           </p>
         </Reveal>
 
-        <Reveal delay={240} className="mt-10 flex flex-col gap-3 sm:flex-row">
+        <Reveal onLoad delay={180} className="mt-10 flex flex-col gap-3 sm:flex-row">
           <ButtonLink href="/contact" size="lg" arrow>
             Start a project
           </ButtonLink>
@@ -40,7 +40,7 @@ export function Hero() {
           </ButtonLink>
         </Reveal>
 
-        <Reveal delay={320}>
+        <Reveal onLoad delay={260}>
           <HeroVisual />
         </Reveal>
       </Container>
