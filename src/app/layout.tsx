@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { RevealOnScroll } from "@/components/reveal-on-scroll";
 import { site } from "@/content/site";
+import { brand } from "@/lib/brand";
 import { fontClassNames } from "@/lib/fonts";
 import { DEFAULT_THEME, themeInitScript } from "@/lib/theme";
 import "./globals.css";
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0b",
+  themeColor: brand.canvas,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,19 +1,10 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { brand } from "@/lib/brand";
 
-/**
- * Social share image (1200×630). Image generation can't read CSS variables, so
- * these hex values mirror the DARK theme in src/styles/tokens.css. Update them
- * together if you change the palette or accent.
- */
-const colors = {
-  canvas: "#0a0a0b",
-  ink: "#f4f4f5",
-  muted: "#a1a1aa",
-  accent: "#ff6b3d",
-  line: "#2a2a30",
-};
+/** Social share image (1200×630). Colors come from src/lib/brand.ts (CSS variables aren't available here). */
+const colors = brand;
 
 // Read once at build time. Geist ships TTFs alongside its woff2 files.
 const semiBold = readFile(join(process.cwd(), "node_modules/geist/dist/fonts/geist-sans/Geist-SemiBold.ttf"));

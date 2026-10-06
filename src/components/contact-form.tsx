@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
+import { Icon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { site } from "@/content/site";
 import { cx } from "@/lib/cx";
@@ -158,24 +159,26 @@ export function ContactForm() {
         <label htmlFor={id("timeline")} className={labelClass}>
           Timeline{optional}
         </label>
-        <select
-          id={id("timeline")}
-          name="timeline"
-          value={values.timeline}
-          onChange={set("timeline")}
-          className={cx(controlClass, "mt-2 h-12 appearance-none bg-[length:1rem] bg-[right_1rem_center] bg-no-repeat pr-11")}
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a8a94' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")",
-          }}
-        >
-          <option value="">Select one</option>
-          {timelines.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
+        <div className="relative mt-2">
+          <select
+            id={id("timeline")}
+            name="timeline"
+            value={values.timeline}
+            onChange={set("timeline")}
+            className={cx(controlClass, "h-12 appearance-none pr-11")}
+          >
+            <option value="">Select one</option>
+            {timelines.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
+          <Icon
+            name="chevron-down"
+            className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-ink-subtle"
+          />
+        </div>
       </div>
 
       <div>
