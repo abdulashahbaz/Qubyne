@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <style>
+    .l { fill: #0e0e10 }
+    .r { fill: #0e0e10; fill-opacity: .55 }
+    @media (prefers-color-scheme: dark) { .l { fill: #f4f4f5 } .r { fill: #f4f4f5; fill-opacity: .55 } }
+  </style>
+  <polygon points="12,2 21,7 12,12 3,7" fill="#ff6b3d"/>
+  <polygon class="l" points="3,8.5 11.25,13.1 11.25,22 3,17.4"/>
+  <polygon class="r" points="21,8.5 12.75,13.1 12.75,22 21,17.4"/>
+</svg>
