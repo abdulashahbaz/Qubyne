@@ -22,6 +22,7 @@ const stats = [
   { value: "4 → 1", label: "Disciplines, one accountable team" },
 ];
 
+// TODO(placeholder): draft beliefs. "Small senior teams" (no pyramid, no juniors, no account managers) is a claim about how you staff projects. Confirm it.
 const beliefs = [
   {
     title: "Ship to learn",

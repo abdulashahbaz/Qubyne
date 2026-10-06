@@ -37,6 +37,8 @@ export const caseStudies: CaseStudy[] = [
     // TODO(placeholder): fictional client — replace with a real, approved client name.
     client: "Halyard Studio",
     category: "Creative tool",
+    // TODO(placeholder): tagline, summary, challenge and approach are invented draft copy containing invented
+    // figures (interview counts, durations, task times). Rewrite from the real project before launch.
     tagline: "A browser-based video editor that takes short-form creators from raw footage to posted in minutes.",
     summary:
       "How we turned a crowded, overbuilt category into a focused editor for vertical video: concept to public beta in 11 weeks.",
@@ -95,6 +97,8 @@ export const caseStudies: CaseStudy[] = [
     // TODO(placeholder): fictional client — replace with a real, approved client name.
     client: "Northpeak",
     category: "SaaS",
+    // TODO(placeholder): tagline, summary, challenge and approach are invented draft copy containing invented
+    // figures (interview counts, durations, task times). Rewrite from the real project before launch.
     tagline: "Invoicing and cash-flow forecasting for small agencies, replacing six spreadsheets with one calm dashboard.",
     summary:
       "A multi-tenant SaaS for agency finance, designed, built and launched in 14 weeks, with billing and onboarding that sells itself.",
@@ -153,6 +157,8 @@ export const caseStudies: CaseStudy[] = [
     // TODO(placeholder): fictional client — replace with a real, approved client name.
     client: "Orchard Labs",
     category: "Productivity",
+    // TODO(placeholder): tagline, summary, challenge and approach are invented draft copy containing invented
+    // figures (interview counts, durations, task times). Rewrite from the real project before launch.
     tagline: "A fast, calm workspace where small teams keep docs, tasks and decisions in one place, even offline.",
     summary:
       "An offline-first collaborative workspace for small teams, built around speed and keyboard-first editing and shipped to general availability in 13 weeks.",

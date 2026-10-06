@@ -12,6 +12,7 @@ export const metadata = pageMetadata({
   path: "/contact",
 });
 
+// TODO(placeholder): these describe your real intake process (who reads it, a 30-minute call, a fixed-price first phase). Confirm or edit.
 const nextSteps = [
   { title: "We read it properly", body: "A senior person reads every message, not a sales script or an auto-responder." },
   { title: "A short call", body: "If it looks like a fit, we'll set up 30 minutes to understand the product, the users and the constraints." },

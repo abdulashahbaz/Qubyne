@@ -16,6 +16,7 @@ export const site = {
   name: "Qubyne",
   /** Canonical origin. Set NEXT_PUBLIC_SITE_URL once the final domain is live. */
   url: resolveSiteUrl(),
+  // TODO(placeholder): "one senior team" (here, in the hero and on About) is a positioning claim. Confirm it matches how you staff projects.
   title: "Qubyne — We design, build and launch software products",
   description:
     "Qubyne is a product studio that designs, builds and launches modern software — SaaS platforms, creative tools and productivity apps — end to end, with one senior team.",

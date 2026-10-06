@@ -16,6 +16,8 @@ export type ProcessStep = {
   gate: string;
 };
 
+// TODO(placeholder): the step content below is draft. Confirm the deliverables and commitments it makes
+// (e.g. "30 days of launch support included", "introductions to 5–8 customers", "fixed plan, timeline and budget").
 export const processSteps: ProcessStep[] = [
   {
     number: "01",
@@ -91,6 +93,7 @@ export const processSteps: ProcessStep[] = [
   },
 ];
 
+// TODO(placeholder): these are commitments about how you work (one accountable lead, no lock-in). Confirm each.
 export const principles = [
   {
     title: "A demo every week",
