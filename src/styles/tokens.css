@@ -1,0 +1,208 @@
+/* ==========================================================================
+   QUBYNE DESIGN TOKENS
+   --------------------------------------------------------------------------
+   This is the one file to edit to restyle the whole site.
+
+   Layout of this file
+     1. Theme colors   — raw CSS variables, one block per theme (dark / light)
+     2. Tailwind map   — exposes those variables as utilities (bg-canvas, text-ink…)
+     3. Fonts          — font stacks (typefaces are loaded in src/lib/fonts.ts)
+     4. Type scale     — fluid sizes (text-display, text-h1 … text-lead)
+     5. Spacing & size — section rhythm, gutters, container width, radii
+     6. Motion         — easing and durations
+
+   Rules of the system
+     • No raw hex values anywhere else in the codebase — components only use
+       the utilities generated from this file.
+     • ONE accent color. Change --accent (per theme) and everything follows.
+     • Every text/background pair below was checked against WCAG AA
+       (≥ 4.5:1 body text, ≥ 3:1 for UI borders). If you change a color,
+       re-check contrast: https://webaim.org/resources/contrastchecker/
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. THEME COLORS
+   Dark is the default. The light theme is applied by <html data-theme="light">.
+   -------------------------------------------------------------------------- */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --canvas: #0a0a0b; /* page background */
+  --surface: #111113; /* cards, panels */
+  --raised: #18181b; /* hover / elevated surfaces */
+
+  /* Lines */
+  --line: #2a2a30; /* hairlines, dividers, card borders */
+  --line-strong: #3d3d45; /* hover borders */
+  --field: #6e6e78; /* form control borders (≥ 3:1 UI contrast) */
+
+  /* Text */
+  --ink: #f4f4f5; /* headings, primary text */
+  --ink-muted: #a1a1aa; /* body copy */
+  --ink-subtle: #8a8a94; /* captions, meta (still ≥ 4.5:1) */
+
+  /* Accent — the only brand color */
+  --accent: #ff6b3d;
+  --accent-hover: #ff8259;
+  --accent-ink: #0a0a0b; /* text on top of an accent fill */
+  --accent-soft: color-mix(in srgb, var(--accent) 14%, transparent);
+  --accent-line: color-mix(in srgb, var(--accent) 38%, transparent);
+
+  /* Effects */
+  --glow: color-mix(in srgb, var(--accent) 26%, transparent);
+  --grid-line: rgb(255 255 255 / 0.045);
+  --header-bg: color-mix(in srgb, var(--canvas) 72%, transparent);
+  --card-shadow: 0 0 0 1px rgb(255 255 255 / 0.03), 0 24px 48px -28px rgb(0 0 0 / 0.75);
+  --pop-shadow: 0 0 0 1px rgb(255 255 255 / 0.06), 0 40px 80px -30px rgb(0 0 0 / 0.9);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --canvas: #fafaf8;
+  --surface: #ffffff;
+  --raised: #f3f3ef;
+
+  --line: #e3e3dd;
+  --line-strong: #cfcfc7;
+  --field: #85858d;
+
+  --ink: #0e0e10;
+  --ink-muted: #505058;
+  --ink-subtle: #6a6a72;
+
+  --accent: #cc3f14;
+  --accent-hover: #b5360f;
+  --accent-ink: #ffffff;
+  --accent-soft: color-mix(in srgb, var(--accent) 9%, transparent);
+  --accent-line: color-mix(in srgb, var(--accent) 38%, transparent);
+
+  --glow: color-mix(in srgb, var(--accent) 16%, transparent);
+  --grid-line: rgb(14 14 16 / 0.055);
+  --header-bg: color-mix(in srgb, var(--canvas) 78%, transparent);
+  --card-shadow: 0 1px 2px rgb(16 16 20 / 0.04), 0 24px 48px -32px rgb(16 16 20 / 0.22);
+  --pop-shadow: 0 1px 2px rgb(16 16 20 / 0.06), 0 40px 80px -34px rgb(16 16 20 / 0.32);
+}
+
+
+/* --------------------------------------------------------------------------
+   2. TAILWIND COLOR MAP
+   The default Tailwind palette is removed on purpose so only brand tokens
+   exist. `inline` makes utilities read the live variable, so switching
+   [data-theme] re-colors everything with no extra classes.
+   -------------------------------------------------------------------------- */
+@theme {
+  --color-*: initial;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-field: var(--field);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-line: var(--accent-line);
+
+  --color-glow: var(--glow);
+  --color-header: var(--header-bg);
+
+  --shadow-card: var(--card-shadow);
+  --shadow-pop: var(--pop-shadow);
+}
+
+
+/* --------------------------------------------------------------------------
+   3. FONTS
+   Stacks only. The actual typefaces (Geist Sans / Geist Mono) are loaded in
+   src/lib/fonts.ts, which exposes --font-geist-sans / --font-geist-mono.
+   To change typeface: swap the loader there, then update the names here.
+   -------------------------------------------------------------------------- */
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-sans); /* headlines — point at a different face to split them */
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+
+/* --------------------------------------------------------------------------
+   4. TYPE SCALE (fluid: scales smoothly from 360px to 1440px viewports)
+   Each size carries its own line-height and tracking.
+   -------------------------------------------------------------------------- */
+@theme {
+  --text-display: clamp(2.875rem, 1.55rem + 5.9vw, 6.25rem);
+  --text-display--line-height: 0.98;
+  --text-display--letter-spacing: -0.045em;
+  --text-display--font-weight: 600;
+
+  --text-h1: clamp(2.5rem, 1.6rem + 3.8vw, 4.5rem);
+  --text-h1--line-height: 1.02;
+  --text-h1--letter-spacing: -0.04em;
+  --text-h1--font-weight: 600;
+
+  --text-h2: clamp(1.875rem, 1.35rem + 2.2vw, 3.25rem);
+  --text-h2--line-height: 1.08;
+  --text-h2--letter-spacing: -0.035em;
+  --text-h2--font-weight: 600;
+
+  --text-h3: clamp(1.25rem, 1.12rem + 0.55vw, 1.625rem);
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: -0.02em;
+  --text-h3--font-weight: 600;
+
+  --text-lead: clamp(1.125rem, 1.04rem + 0.38vw, 1.375rem);
+  --text-lead--line-height: 1.5;
+  --text-lead--letter-spacing: -0.01em;
+
+  /* Small uppercase labels ("eyebrows") */
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.14em;
+  --text-eyebrow--font-weight: 500;
+}
+
+
+/* --------------------------------------------------------------------------
+   5. SPACING, SIZE & SHAPE
+   Tailwind's 4px spacing scale stays; these are the named, semantic extras.
+   -------------------------------------------------------------------------- */
+@theme {
+  --spacing-section: clamp(5rem, 3.4rem + 7vw, 9.5rem); /* vertical rhythm between sections */
+  --spacing-gutter: clamp(1.25rem, 0.75rem + 2.2vw, 2.5rem); /* page side padding */
+
+  --container-site: 76rem; /* max content width  → max-w-site */
+  --container-prose: 42rem; /* readable text width → max-w-prose */
+
+  --radius-control: 0.75rem; /* buttons, inputs   → rounded-control */
+  --radius-card: 1.25rem; /* cards, panels     → rounded-card */
+  --radius-pill: 999px;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. MOTION
+   Subtle by default. Everything respects prefers-reduced-motion (globals.css).
+   -------------------------------------------------------------------------- */
+@theme {
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-reveal: 700ms;
+}
