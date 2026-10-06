@@ -7,10 +7,12 @@ type Props = {
   study: CaseStudy;
   /** Set on cards that are likely above the fold so the image loads eagerly. */
   priority?: boolean;
+  /** Heading level for the title, so the page's outline stays sequential (h2 when the page has no h2 above). */
+  headingLevel?: "h2" | "h3";
 };
 
 /** One card, reused on the Home page, Work index and "more work" rail. The whole card is a single link. */
-export function CaseStudyCard({ study, priority = false }: Props) {
+export function CaseStudyCard({ study, priority = false, headingLevel: Heading = "h3" }: Props) {
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface shadow-card transition-colors duration-(--duration-base) hover:border-line-strong">
       <div className="overflow-hidden border-b border-line bg-canvas">
@@ -28,12 +30,12 @@ export function CaseStudyCard({ study, priority = false }: Props) {
         <p className="font-mono text-eyebrow text-ink-subtle uppercase">
           <span className="text-accent">{study.category}</span> · {study.client}
         </p>
-        <h3 className="mt-4 text-h3">
+        <Heading className="mt-4 text-h3">
           {/* The ::after stretches this link over the whole card. */}
           <Link href={`/work/${study.slug}`} className="after:absolute after:inset-0 after:content-['']">
             {study.title}
           </Link>
-        </h3>
+        </Heading>
         <p className="mt-3 flex-1 text-ink-muted">{study.tagline}</p>
         <p className="mt-6 flex items-center gap-2 text-[0.9375rem] font-medium text-ink">
           Read the case study

@@ -55,9 +55,9 @@ export function Header() {
 
         <div className="flex items-center gap-1.5">
           <ThemeToggle />
-          <ButtonLink href="/contact" className="hidden md:inline-flex">
-            Start a project
-          </ButtonLink>
+          <div className="hidden md:block">
+            <ButtonLink href="/contact">Start a project</ButtonLink>
+          </div>
           <button
             ref={menuButton}
             type="button"

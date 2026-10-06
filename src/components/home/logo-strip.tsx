@@ -8,12 +8,12 @@ import { Reveal } from "@/components/ui/reveal";
  * section entirely until you have approved logos. Do not ship invented clients.
  */
 const logos = [
-  { name: "Halyard Studio", className: "font-semibold tracking-tight" },
-  { name: "NORTHPEAK", className: "font-bold tracking-[0.18em] text-base" },
-  { name: "Orchard Labs", className: "font-medium tracking-tight" },
-  { name: "lumenfield", className: "font-semibold tracking-[-0.06em] text-2xl" },
-  { name: "Brightloop", className: "font-mono font-medium tracking-tight text-lg" },
-  { name: "KESTREL", className: "font-semibold tracking-[0.3em] text-sm" },
+  { name: "Halyard Studio", className: "text-lg font-semibold tracking-tight sm:text-xl" },
+  { name: "NORTHPEAK", className: "text-sm font-bold tracking-[0.18em] sm:text-base" },
+  { name: "Orchard Labs", className: "text-lg font-medium tracking-tight sm:text-xl" },
+  { name: "lumenfield", className: "text-xl font-semibold tracking-[-0.06em] sm:text-2xl" },
+  { name: "Brightloop", className: "font-mono text-base font-medium tracking-tight sm:text-lg" },
+  { name: "KESTREL", className: "text-xs font-semibold tracking-[0.3em] sm:text-sm" },
 ];
 
 export function LogoStrip() {
@@ -27,7 +27,7 @@ export function LogoStrip() {
         </Reveal>
         <Reveal as="ul" delay={100} className="mt-9 grid grid-cols-2 items-center gap-x-8 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
           {logos.map((logo) => (
-            <li key={logo.name} className={`text-center text-xl whitespace-nowrap text-ink-subtle ${logo.className}`}>
+            <li key={logo.name} className={`min-w-0 text-center text-ink-subtle ${logo.className}`}>
               {logo.name}
             </li>
           ))}

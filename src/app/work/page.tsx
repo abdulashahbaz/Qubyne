@@ -26,7 +26,7 @@ export default function WorkPage() {
         <ul aria-label="Case studies" className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {caseStudies.map((study, i) => (
             <Reveal as="li" key={study.slug} delay={i * 100}>
-              <CaseStudyCard study={study} priority />
+              <CaseStudyCard study={study} priority headingLevel="h2" />
             </Reveal>
           ))}
         </ul>

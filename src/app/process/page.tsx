@@ -77,7 +77,7 @@ export default function ProcessPage() {
                 </div>
               ))}
             </div>
-            <div className="flex items-start gap-4 rounded-card border border-accent-line bg-accent-soft p-6">
+            <div className="flex items-start gap-4 rounded-card border border-accent-line bg-surface p-6">
               <span className="font-mono text-eyebrow whitespace-nowrap text-accent uppercase">Decision gate</span>
               <p className="text-ink">{step.gate}</p>
             </div>
