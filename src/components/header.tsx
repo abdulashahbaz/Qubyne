@@ -56,7 +56,7 @@ export function Header() {
         <div className="flex items-center gap-1.5">
           <ThemeToggle />
           <div className="hidden md:block">
-            <ButtonLink href="/contact">Start a project</ButtonLink>
+            <ButtonLink href="/contact">Get in touch</ButtonLink>
           </div>
           <button
             ref={menuButton}
@@ -93,7 +93,7 @@ export function Header() {
             </ul>
           </nav>
           <ButtonLink href="/contact" size="lg" arrow className="mt-4 mb-2 w-full">
-            Start a project
+            Get in touch
           </ButtonLink>
         </Container>
       </div>

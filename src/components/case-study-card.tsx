@@ -28,7 +28,8 @@ export function CaseStudyCard({ study, priority = false, headingLevel: Heading =
       </div>
       <div className="flex flex-1 flex-col p-6 sm:p-7">
         <p className="font-mono text-eyebrow text-ink-subtle uppercase">
-          <span className="text-accent">{study.category}</span> · {study.client}
+          <span className="text-accent">{study.category}</span>
+          {study.client && <> · {study.client}</>}
         </p>
         <Heading className="mt-4 text-h3">
           {/* The ::after stretches this link over the whole card. */}

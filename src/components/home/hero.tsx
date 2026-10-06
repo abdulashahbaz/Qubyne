@@ -26,17 +26,17 @@ export function Hero() {
 
         <Reveal onLoad delay={120}>
           <p className="mt-8 max-w-2xl text-lead text-ink-muted">
-            Qubyne designs, builds and launches modern software for companies: SaaS platforms, creative tools and
-            productivity apps. One senior team, from first sketch to public launch.
+            Qubyne is a product studio. We design, build and launch our own software, from SaaS platforms to creative
+            tools and productivity apps, and run every product as a business.
           </p>
         </Reveal>
 
         <Reveal onLoad delay={180} className="mt-10 flex flex-col gap-3 sm:flex-row">
           <ButtonLink href="/contact" size="lg" arrow>
-            Start a project
+            Get in touch
           </ButtonLink>
-          <ButtonLink href="/work" size="lg" variant="secondary">
-            See our work
+          <ButtonLink href="/process" size="lg" variant="secondary">
+            How we build
           </ButtonLink>
         </Reveal>
 

@@ -9,6 +9,6 @@ export default function Image() {
   return renderOg({
     eyebrow: "Product studio",
     title: "Software products worth switching to.",
-    subtitle: "We design, build and launch modern software, from first sketch to public launch.",
+    subtitle: "A studio that designs, builds and launches its own software products.",
   });
 }

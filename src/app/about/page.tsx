@@ -5,40 +5,33 @@ import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { services } from "@/content/services";
+import { capabilities } from "@/content/capabilities";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "About",
   description:
-    "Qubyne is a small, senior product studio. We own strategy, design, engineering and launch together, so the products we build are focused, fast and ready for real users.",
+    "Qubyne is a product studio that builds and launches its own software. One team owns strategy, design, engineering and launch, and runs every product as a business.",
   path: "/about",
 });
 
-// TODO(placeholder): illustrative figures. Replace with real numbers you can stand behind, or remove the row.
-const stats = [
-  { value: "12", label: "Products launched" },
-  { value: "10–14 wks", label: "Typical time to a first launch" },
-  { value: "4 → 1", label: "Disciplines, one accountable team" },
-];
-
-// TODO(placeholder): draft beliefs. "Small senior teams" (no pyramid, no juniors, no account managers) is a claim about how you staff projects. Confirm it.
+// TODO(placeholder): draft beliefs. These describe how Qubyne works; confirm each one is true.
 const beliefs = [
   {
+    title: "Build what we'd use",
+    body: "We start from problems we have, or ones we've watched real people struggle with. We don't take client briefs and we don't build things nobody asked for.",
+  },
+  {
     title: "Ship to learn",
-    body: "A real product in real hands teaches more in a week than a quarter of planning. We design every project to put something usable in front of people early, then let what we learn decide what comes next.",
+    body: "A real product in real hands teaches more in a week than a quarter of planning. We put something usable in front of people early, and let what we learn decide what comes next.",
   },
   {
     title: "Craft is a feature",
     body: "Speed, polish and small details are what make people choose one product over another. We treat them as requirements, not decoration.",
   },
   {
-    title: "Small senior teams",
-    body: "Every project is staffed by experienced people who do the work themselves. No pyramid, no juniors learning on your budget, no account managers in between.",
-  },
-  {
-    title: "Honest over agreeable",
-    body: "We'll tell you when an idea isn't ready, when a feature isn't worth building, and when you don't need us. You hire us for judgement, and judgement sometimes means saying no.",
+    title: "Honest about what works",
+    body: "Most ideas don't deserve to become products. We'd rather kill one in week two than spend a year proving it was never going to work.",
   },
 ];
 
@@ -48,44 +41,32 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="We build the products we'd want to use."
-        lead="Qubyne is a small product studio for companies building serious software. The best products come from one team that owns strategy, design, engineering and launch together. That's all we do."
+        lead="Qubyne is a product studio. We make our own software and launch each product as a business, with one team owning everything from the first idea to the first paying customer."
       />
 
       <Section labelledBy="story-title" className="border-t border-line" containerClassName="grid gap-12 lg:grid-cols-12">
         <Reveal className="lg:col-span-5">
-          <SectionHeading id="story-title" eyebrow="Why we exist" title="Good ideas get lost between hand-offs." />
+          <SectionHeading id="story-title" eyebrow="Why we exist" title="Great products come from owning the outcome." />
         </Reveal>
         <Reveal delay={100} className="space-y-6 text-lead text-ink-muted lg:col-span-7">
           {/* TODO(placeholder): draft founding story. Replace with the real one (who started it, when, why). */}
           <p>
-            Most software projects fail in the gaps: between the strategy deck and the designer, between the design
-            file and the developer, between the finished build and a launch nobody planned. Each hand-off loses
-            context, and the product gets a little blurrier every time.
+            Most software gets built twice: once as a brief, and again as a product. Somewhere between the strategy deck,
+            the design file and the finished build, the original idea gets a little blurrier at every hand-off.
           </p>
           <p>
-            Qubyne exists to close those gaps. One senior team owns the whole journey, so the person who questioned
-            your positioning is the same person who reviews the final build, and the people who design the onboarding
-            help plan the launch.
+            Qubyne removes the hand-offs. One team owns the whole journey, so the person who questioned the positioning
+            is the same person who reviews the final build, and the people who designed the onboarding help plan the
+            launch.
           </p>
           <p>
-            We stay deliberately small and work with a handful of companies at a time, so every product gets the
-            attention it needs to be genuinely good.
+            And because we build for ourselves, there&rsquo;s no one to blame and no one to hide behind. We succeed when a
+            product earns its customers, and when it doesn&rsquo;t, we say so and move on.
           </p>
         </Reveal>
       </Section>
 
-      <section aria-label="Qubyne in numbers" className="border-y border-line">
-        <dl className="mx-auto grid max-w-site divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-          {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 80} className="flex flex-col-reverse gap-3 px-gutter py-12 sm:py-16">
-              <dt className="text-ink-muted">{s.label}</dt>
-              <dd className="text-h1 text-ink">{s.value}</dd>
-            </Reveal>
-          ))}
-        </dl>
-      </section>
-
-      <Section labelledBy="beliefs-title">
+      <Section labelledBy="beliefs-title" className="border-t border-line">
         <Reveal>
           <SectionHeading id="beliefs-title" eyebrow="What we believe" title="Four ideas we won't compromise on." />
         </Reveal>
@@ -110,23 +91,23 @@ export default function AboutPage() {
         <Reveal>
           <SectionHeading
             id="disciplines-title"
-            eyebrow="The team"
+            eyebrow="How we're set up"
             title="Four disciplines, working as one."
-            lead="You'll work directly with the people doing the work, from the first call to launch day."
+            lead="Strategy, design, engineering and growth sit on the same team and work on the same products."
           />
         </Reveal>
         <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((s, i) => (
-            <Reveal as="li" key={s.slug} delay={i * 80}>
+          {capabilities.map((c, i) => (
+            <Reveal as="li" key={c.slug} delay={i * 80}>
               <Link
-                href={`/services#${s.slug}`}
+                href={`/what-we-do#${c.slug}`}
                 className="group flex h-full flex-col rounded-card border border-line bg-surface p-7 shadow-card transition-colors duration-(--duration-base) hover:border-line-strong hover:bg-raised"
               >
                 <span className="flex size-12 items-center justify-center rounded-control bg-accent-soft text-accent">
-                  <Icon name={s.icon} className="size-6" />
+                  <Icon name={c.icon} className="size-6" />
                 </span>
-                <h3 className="mt-8 text-h3">{s.name}</h3>
-                <p className="mt-3 flex-1 text-ink-muted">{s.short}</p>
+                <h3 className="mt-8 text-h3">{c.name}</h3>
+                <p className="mt-3 flex-1 text-ink-muted">{c.short}</p>
                 <span className="mt-6 flex items-center gap-2 text-[0.9375rem] font-medium text-ink">
                   Learn more
                   <Icon
@@ -140,7 +121,7 @@ export default function AboutPage() {
         </ul>
       </Section>
 
-      <CtaSection title="Let's build something worth switching to." />
+      <CtaSection title="Want to be part of it?" />
     </>
   );
 }

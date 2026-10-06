@@ -8,7 +8,7 @@ const categories: { icon: IconName; title: string; body: string; tags: string[] 
   {
     icon: "layers",
     title: "SaaS platforms",
-    body: "Multi-tenant products with billing, roles and onboarding that sells itself. Built to scale past your first hundred customers.",
+    body: "Multi-tenant software businesses with billing, teams and onboarding that sells itself, built to scale past the first hundred customers.",
     tags: ["Billing", "Teams", "Analytics"],
   },
   {
@@ -26,20 +26,20 @@ const categories: { icon: IconName; title: string; body: string; tags: string[] 
   {
     icon: "terminal",
     title: "Internal tools",
-    body: "The dashboards, admin panels and workflows that run your operations, built like a product, not a patch.",
+    body: "The dashboards and workflows we build to run ourselves, made like products instead of patches. The best ones may become products of their own.",
     tags: ["Ops", "Admin", "Automation"],
   },
 ];
 
-export function WhatWeLaunch() {
+export function WhatWeBuild() {
   return (
-    <Section labelledBy="launch-title">
+    <Section labelledBy="build-title">
       <Reveal>
         <SectionHeading
-          id="launch-title"
-          eyebrow="What we launch"
+          id="build-title"
+          eyebrow="What we build"
           title="Four kinds of product. One standard of craft."
-          lead="If it has real users and needs to feel great to use, we can take it from idea to launch."
+          lead="If it has real users and has to feel great to use, it's the kind of thing we build."
         />
       </Reveal>
 

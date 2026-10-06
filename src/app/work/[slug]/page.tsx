@@ -8,7 +8,7 @@ import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
-import { getService } from "@/content/services";
+import { getCapability } from "@/content/capabilities";
 import { caseStudies, getCaseStudy } from "@/content/work";
 import { pageMetadata } from "@/lib/seo";
 
@@ -45,10 +45,10 @@ export default async function CaseStudyPage({ params }: Params) {
   const next = caseStudies[(index + 1) % caseStudies.length];
 
   const facts = [
-    { label: "Client", value: study.client },
+    ...(study.client ? [{ label: "Partner", value: study.client }] : []),
     { label: "Year", value: study.year },
     { label: "Duration", value: study.duration },
-    { label: "Services", value: study.services.map((s) => getService(s).name).join(", ") },
+    { label: "Disciplines", value: study.capabilities.map((c) => getCapability(c).name).join(", ") },
   ];
 
   return (
@@ -130,10 +130,10 @@ export default async function CaseStudyPage({ params }: Params) {
                 <p className="flex items-center justify-between font-mono text-eyebrow uppercase">
                   <span className="text-accent">0{i + 1}</span>
                   <Link
-                    href={`/services#${step.service}`}
+                    href={`/what-we-do#${step.capability}`}
                     className="text-ink-subtle transition-colors duration-(--duration-base) hover:text-ink"
                   >
-                    {getService(step.service).name}
+                    {getCapability(step.capability).name}
                   </Link>
                 </p>
                 <h3 className="mt-8 text-h3">{step.title}</h3>
@@ -160,15 +160,17 @@ export default async function CaseStudyPage({ params }: Params) {
         </section>
 
         <Section containerClassName="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <Reveal as="figure" className="lg:col-span-8">
-            <blockquote>
-              <p className="text-h2 text-balance">&ldquo;{study.quote.text}&rdquo;</p>
-            </blockquote>
-            <figcaption className="mt-8 text-ink-muted">
-              <span className="font-medium text-ink">{study.quote.name}</span>, {study.quote.role}
-            </figcaption>
-          </Reveal>
-          <Reveal delay={100} className="lg:col-span-4">
+          {study.quote && (
+            <Reveal as="figure" className="lg:col-span-8">
+              <blockquote>
+                <p className="text-h2 text-balance">&ldquo;{study.quote.text}&rdquo;</p>
+              </blockquote>
+              <figcaption className="mt-8 text-ink-muted">
+                <span className="font-medium text-ink">{study.quote.name}</span>, {study.quote.role}
+              </figcaption>
+            </Reveal>
+          )}
+          <Reveal delay={100} className={study.quote ? "lg:col-span-4" : "lg:col-span-12"}>
             <h2 className="font-mono text-eyebrow text-ink-subtle uppercase">Built with</h2>
             <ul className="mt-5 flex flex-wrap gap-2">
               {study.stack.map((tech) => (
@@ -181,30 +183,32 @@ export default async function CaseStudyPage({ params }: Params) {
         </Section>
       </article>
 
-      <Section labelledBy="next-title" className="border-t border-line">
-        <Reveal>
-          <h2 id="next-title" className="font-mono text-eyebrow text-ink-subtle uppercase">
-            Next case study
-          </h2>
-          <Link
-            href={`/work/${next.slug}`}
-            className="group mt-6 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between"
-          >
-            <span>
-              <span className="block font-mono text-eyebrow text-accent uppercase">{next.category}</span>
-              <span className="mt-3 block text-h1 transition-colors duration-(--duration-base) group-hover:text-accent">
-                {next.title}
+      {caseStudies.length > 1 && (
+        <Section labelledBy="next-title" className="border-t border-line">
+          <Reveal>
+            <h2 id="next-title" className="font-mono text-eyebrow text-ink-subtle uppercase">
+              Next case study
+            </h2>
+            <Link
+              href={`/work/${next.slug}`}
+              className="group mt-6 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between"
+            >
+              <span>
+                <span className="block font-mono text-eyebrow text-accent uppercase">{next.category}</span>
+                <span className="mt-3 block text-h1 transition-colors duration-(--duration-base) group-hover:text-accent">
+                  {next.title}
+                </span>
+                <span className="mt-4 block max-w-xl text-ink-muted">{next.tagline}</span>
               </span>
-              <span className="mt-4 block max-w-xl text-ink-muted">{next.tagline}</span>
-            </span>
-            <span className="flex size-14 shrink-0 items-center justify-center rounded-full border border-line-strong text-ink transition-colors duration-(--duration-base) group-hover:border-accent group-hover:bg-accent group-hover:text-accent-ink">
-              <Icon name="arrow-right" className="size-5" />
-            </span>
-          </Link>
-        </Reveal>
-      </Section>
+              <span className="flex size-14 shrink-0 items-center justify-center rounded-full border border-line-strong text-ink transition-colors duration-(--duration-base) group-hover:border-accent group-hover:bg-accent group-hover:text-accent-ink">
+                <Icon name="arrow-right" className="size-5" />
+              </span>
+            </Link>
+          </Reveal>
+        </Section>
+      )}
 
-      <CtaSection title="Have a product like this in mind?" />
+      <CtaSection />
     </>
   );
 }

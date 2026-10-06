@@ -5,7 +5,9 @@ import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { caseStudies } from "@/content/work";
 
+/** Hidden until there is at least one case study in src/content/work.ts. */
 export function FeaturedWork() {
+  if (caseStudies.length === 0) return null;
   return (
     <Section labelledBy="work-title" className="border-t border-line">
       <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
@@ -13,7 +15,7 @@ export function FeaturedWork() {
           <SectionHeading
             id="work-title"
             eyebrow="Featured work"
-            title="Products we've taken from idea to launch."
+            title="Products we've launched."
           />
         </Reveal>
         <Reveal delay={100}>

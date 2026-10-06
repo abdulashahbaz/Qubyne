@@ -12,8 +12,8 @@ export function HowWeWork() {
           <SectionHeading
             id="process-title"
             eyebrow="How we work"
-            title="Four steps from idea to launch."
-            lead="A decision at every step, and working software all the way."
+            title="How an idea becomes a business."
+            lead="Four steps, and a go / no-go at the end of each one."
           />
         </Reveal>
         <Reveal delay={100}>

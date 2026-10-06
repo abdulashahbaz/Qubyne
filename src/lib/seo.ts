@@ -20,11 +20,14 @@ export function pageMetadata({
   description,
   path,
   image,
+  noindex,
 }: {
   title?: string;
   description: string;
   path: string;
   image?: false;
+  /** Keep a thin or empty page out of search results. */
+  noindex?: boolean;
 }): Metadata {
   const fullTitle = title ? `${title} — ${site.name}` : site.title;
   // Omit the keys entirely (rather than passing undefined) so a segment's own
@@ -36,6 +39,7 @@ export function pageMetadata({
     title: title ? title : { absolute: site.title },
     description,
     alternates: { canonical: path },
+    ...(noindex && { robots: { index: false, follow: true } }),
     openGraph: { type: "website", siteName: site.name, locale: "en_US", title: fullTitle, description, url: path, ...images },
     twitter: {
       card: "summary_large_image",

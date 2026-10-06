@@ -11,14 +11,14 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Process",
   description:
-    "How Qubyne takes a product from idea to launch in four phases (define, design, build, launch), with a weekly demo, a decision gate at every step and full code ownership.",
+    "How Qubyne turns an idea into a launched product in four steps (define, design, build, launch), with a weekly demo and a go / no-go decision at the end of every step.",
   path: "/process",
 });
 
 const columns = [
   { key: "whatHappens", label: "What happens" },
-  { key: "youGet", label: "What you get" },
-  { key: "weNeed", label: "What we need from you" },
+  { key: "outputs", label: "What comes out" },
+  { key: "signals", label: "What we look for" },
 ] as const;
 
 export default function ProcessPage() {
@@ -38,8 +38,8 @@ export default function ProcessPage() {
 
       <PageHero
         eyebrow="Process"
-        title="A clear path from idea to launch."
-        lead="Four phases, each with a defined outcome and a decision at the end. Here's exactly what happens, what you get and what we need from you."
+        title="How an idea becomes a business."
+        lead="Four steps, each ending in a go / no-go. This is exactly how we decide what gets built, how it gets built, and what earns a launch."
       />
 
       {processSteps.map((step) => (
@@ -78,7 +78,7 @@ export default function ProcessPage() {
               ))}
             </div>
             <div className="flex items-start gap-4 rounded-card border border-accent-line bg-surface p-6">
-              <span className="font-mono text-eyebrow whitespace-nowrap text-accent uppercase">Decision gate</span>
+              <span className="font-mono text-eyebrow whitespace-nowrap text-accent uppercase">Go / no-go</span>
               <p className="text-ink">{step.gate}</p>
             </div>
           </Reveal>
@@ -90,7 +90,7 @@ export default function ProcessPage() {
           <SectionHeading
             id="principles-title"
             eyebrow="Ways of working"
-            title="How we run every project."
+            title="How we run every product."
             lead="The process only works with some ground rules. These are ours."
           />
         </Reveal>
@@ -111,7 +111,7 @@ export default function ProcessPage() {
 
       <Section labelledBy="faq-title" className="border-t border-line" containerClassName="grid gap-12 lg:grid-cols-12">
         <Reveal className="lg:col-span-4">
-          <SectionHeading id="faq-title" eyebrow="FAQ" title="Questions we hear a lot." />
+          <SectionHeading id="faq-title" eyebrow="FAQ" title="Questions we get asked." />
         </Reveal>
         <Reveal delay={100} className="lg:col-span-8">
           <div className="divide-y divide-line border-y border-line">

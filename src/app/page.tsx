@@ -2,8 +2,7 @@ import { CtaSection } from "@/components/cta-section";
 import { FeaturedWork } from "@/components/home/featured-work";
 import { Hero } from "@/components/home/hero";
 import { HowWeWork } from "@/components/home/how-we-work";
-import { LogoStrip } from "@/components/home/logo-strip";
-import { WhatWeLaunch } from "@/components/home/what-we-launch";
+import { WhatWeBuild } from "@/components/home/what-we-build";
 import { WhyQubyne } from "@/components/home/why-qubyne";
 import { JsonLd } from "@/components/json-ld";
 import { site } from "@/content/site";
@@ -26,8 +25,7 @@ export default function HomePage() {
         }}
       />
       <Hero />
-      <LogoStrip />
-      <WhatWeLaunch />
+      <WhatWeBuild />
       <HowWeWork />
       <FeaturedWork />
       <WhyQubyne />

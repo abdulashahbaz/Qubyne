@@ -13,7 +13,6 @@ const paths = {
   close: "M6 6l12 12M18 6 6 18",
   check: "m5 12.5 4.5 4.5L19 7",
   plus: "M12 5v14M5 12h14",
-  "chevron-down": "m6 9 6 6 6-6",
   mail: "M4 6h16v12H4zM4 7l8 6 8-6",
   layers: "m12 3 9 5-9 5-9-5 9-5ZM3 12.5l9 5 9-5M3 16.5l9 5 9-5",
   play: "M4 5h16v14H4zM10 9.2v5.6l4.8-2.8-4.8-2.8Z",

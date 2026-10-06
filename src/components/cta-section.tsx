@@ -10,9 +10,9 @@ type CtaSectionProps = {
 
 /** Closing call to action, reused at the bottom of every marketing page. */
 export function CtaSection({
-  title = "Have a product in mind?",
-  // TODO(placeholder): "two business days" is a response-time promise. Confirm you can keep it.
-  lead = "Tell us what you're building. We'll reply within two business days with honest thoughts, even if the honest answer is that you don't need us yet.",
+  title = "Curious what we're building?",
+  // TODO(placeholder): confirm which enquiries you want (early access, partnerships, press, hiring) and that you can answer them.
+  lead = "We're working on our first products. If you want early access, a partnership, or to join in, tell us. A real person reads every message.",
 }: CtaSectionProps) {
   return (
     <section aria-labelledby="cta-title" className="pb-section">
@@ -29,7 +29,7 @@ export function CtaSection({
           <p className="mx-auto mt-6 max-w-xl text-lead text-ink-muted">{lead}</p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <ButtonLink href="/contact" size="lg" arrow>
-              Start a project
+              Get in touch
             </ButtonLink>
             <ButtonLink href={`mailto:${site.email}`} size="lg" variant="secondary">
               {site.email}

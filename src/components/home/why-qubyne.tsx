@@ -2,18 +2,19 @@ import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 
+// TODO(placeholder): these describe how Qubyne works. Confirm each is true.
 const differentiators = [
   {
+    title: "We own what we build",
+    body: "Every product is ours: our name, our money, our roadmap. No client brief to compromise the product, and no hand-off to lose the thinking along the way.",
+  },
+  {
     title: "One team, idea to launch",
-    body: "Strategy, design, engineering and growth work in the same room. There are no hand-offs between an agency, a dev shop and a freelancer, so nothing gets lost in translation and decisions take hours, not weeks.",
+    body: "Strategy, design, engineering and growth work in the same room, so nothing gets lost in translation and decisions take hours, not weeks.",
   },
   {
-    title: "Opinionated about the product",
-    body: "We aren't order-takers. We'll challenge scope, cut features that haven't earned their place and push for the simplest thing that works, because focused products launch sooner and win more often.",
-  },
-  {
-    title: "Built to be owned",
-    body: "Weekly demos, clean code and real documentation. You own the repository, the infrastructure and the accounts from day one, and your team can take over the morning after launch.",
+    title: "Willing to kill ideas",
+    body: "Most ideas shouldn't become products. Each one faces a go / no-go at every step, so the ones that launch have earned it, and we keep running them as real businesses.",
   },
 ];
 
@@ -26,7 +27,7 @@ export function WhyQubyne() {
             id="why-title"
             eyebrow="Why Qubyne"
             title="A studio that behaves like a founding team."
-            lead="We take ownership of the outcome, not just the deliverable. Here's what that looks like in practice."
+            lead="We build for ourselves, so every decision comes down to one question: would we bet our own money on this?"
           />
         </div>
       </Reveal>

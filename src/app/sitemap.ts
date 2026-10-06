@@ -4,8 +4,9 @@ import { caseStudies } from "@/content/work";
 
 const pages = [
   { path: "", priority: 1, changeFrequency: "weekly" },
-  { path: "/services", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/work", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/what-we-do", priority: 0.9, changeFrequency: "monthly" },
+  // /work is listed only once it has case studies (an empty page is noindex).
+  ...(caseStudies.length > 0 ? [{ path: "/work", priority: 0.9, changeFrequency: "monthly" } as const] : []),
   { path: "/process", priority: 0.7, changeFrequency: "monthly" },
   { path: "/about", priority: 0.7, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.8, changeFrequency: "yearly" },

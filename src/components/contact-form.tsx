@@ -1,20 +1,18 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
-import { Icon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { site } from "@/content/site";
 import { cx } from "@/lib/cx";
 import {
-  projectTypes,
   submitInquiry,
-  timelines,
+  topics,
   validateInquiry,
   type Inquiry,
   type InquiryErrors,
 } from "@/lib/contact";
 
-const empty: Inquiry = { name: "", email: "", company: "", projectType: "", timeline: "", message: "" };
+const empty: Inquiry = { name: "", email: "", company: "", topic: "", message: "" };
 
 const controlClass =
   "w-full rounded-control border border-field bg-canvas px-4 text-ink transition-colors duration-(--duration-base) " +
@@ -89,7 +87,7 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor={id("email")} className={labelClass}>
-            Work email
+            Email
           </label>
           <input
             id={id("email")}
@@ -123,26 +121,26 @@ export function ContactForm() {
       </div>
 
       <div>
-        <p id={id("projectType-label")} className={labelClass}>
-          What are you building?
+        <p id={id("topic-label")} className={labelClass}>
+          What&rsquo;s this about?
         </p>
         <div
           role="radiogroup"
-          aria-labelledby={id("projectType-label")}
+          aria-labelledby={id("topic-label")}
           aria-required="true"
-          aria-invalid={errors.projectType ? true : undefined}
-          aria-describedby={errors.projectType ? id("projectType-error") : undefined}
-          data-invalid={errors.projectType ? "" : undefined}
+          aria-invalid={errors.topic ? true : undefined}
+          aria-describedby={errors.topic ? id("topic-error") : undefined}
+          data-invalid={errors.topic ? "" : undefined}
           className="group mt-3 flex flex-wrap gap-2"
         >
-          {projectTypes.map((type, i) => (
+          {topics.map((type, i) => (
             <label key={type} className="cursor-pointer">
               <input
                 type="radio"
-                name="projectType"
+                name="topic"
                 value={type}
-                checked={values.projectType === type}
-                onChange={set("projectType")}
+                checked={values.topic === type}
+                onChange={set("topic")}
                 required={i === 0}
                 className="peer sr-only"
               />
@@ -152,38 +150,12 @@ export function ContactForm() {
             </label>
           ))}
         </div>
-        {errorText("projectType")}
-      </div>
-
-      <div>
-        <label htmlFor={id("timeline")} className={labelClass}>
-          Timeline{optional}
-        </label>
-        <div className="relative mt-2">
-          <select
-            id={id("timeline")}
-            name="timeline"
-            value={values.timeline}
-            onChange={set("timeline")}
-            className={cx(controlClass, "h-12 appearance-none pr-11")}
-          >
-            <option value="">Select one</option>
-            {timelines.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
-          <Icon
-            name="chevron-down"
-            className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-ink-subtle"
-          />
-        </div>
+        {errorText("topic")}
       </div>
 
       <div>
         <label htmlFor={id("message")} className={labelClass}>
-          Tell us about the product
+          Your message
         </label>
         <textarea
           id={id("message")}
@@ -192,7 +164,7 @@ export function ContactForm() {
           required
           value={values.message}
           onChange={set("message")}
-          placeholder="Who is it for, what problem does it solve, and what do you have so far?"
+          placeholder="What's on your mind?"
           className={cx(controlClass, "mt-2 resize-y py-3.5 leading-relaxed")}
           {...errorProps("message")}
         />
@@ -203,7 +175,7 @@ export function ContactForm() {
         <Button type="submit" size="lg" arrow>
           Send message
         </Button>
-        <p className="text-sm text-ink-subtle">We reply from a real person&rsquo;s inbox. No newsletters, no spam.</p>
+        <p className="text-sm text-ink-subtle">A real person reads every message. No newsletters, no spam.</p>
       </div>
 
       {/* Polite live region: announced to screen readers when it appears. */}

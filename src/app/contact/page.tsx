@@ -8,15 +8,15 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Contact",
   description:
-    "Tell Qubyne what you're building. Share a few details about your product and we'll reply with honest thoughts on scope, approach and whether we're the right fit.",
+    "Get in touch with Qubyne about early access, partnerships, press or joining the team. A real person reads every message.",
   path: "/contact",
 });
 
-// TODO(placeholder): these describe your real intake process (who reads it, a 30-minute call, a fixed-price first phase). Confirm or edit.
+// TODO(placeholder): confirm these describe what really happens when someone writes to you.
 const nextSteps = [
-  { title: "We read it properly", body: "A senior person reads every message, not a sales script or an auto-responder." },
-  { title: "A short call", body: "If it looks like a fit, we'll set up 30 minutes to understand the product, the users and the constraints." },
-  { title: "A clear proposal", body: "You get a scoped plan with a fixed price for the first phase, or an honest “not yet” and why." },
+  { title: "A real person reads it", body: "Every message is read by someone on the team, never by a script or an auto-responder." },
+  { title: "You get a straight answer", body: "We'll reply honestly, even if the answer is \u201cnot right now\u201d." },
+  { title: "Early access comes first", body: "If you asked for early access, you'll hear from us when the first beta opens." },
 ];
 
 export default function ContactPage() {
@@ -24,8 +24,8 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Tell us what you're building."
-        lead="A few details are plenty. We'll reply with honest thoughts on scope, approach and whether we're the right team."
+        title="Say hello."
+        lead="Early access, a partnership, press, or a question about what we're building. Send us a note."
       />
 
       <Section className="pt-0 sm:pt-0" containerClassName="grid gap-12 lg:grid-cols-12 lg:gap-20">
@@ -36,7 +36,7 @@ export default function ContactPage() {
         </Reveal>
 
         <Reveal delay={100} className="lg:col-span-5">
-          <h2 className="font-mono text-eyebrow text-ink-subtle uppercase">What happens next</h2>
+          <h2 className="font-mono text-eyebrow text-ink-subtle uppercase">What to expect</h2>
           <ol className="mt-6 space-y-8">
             {nextSteps.map((step, i) => (
               <li key={step.title} className="flex gap-5">

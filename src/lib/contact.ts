@@ -1,26 +1,25 @@
 import { site } from "@/content/site";
 
-export const projectTypes = ["SaaS platform", "Creative tool", "Productivity app", "Internal tool", "Something else"] as const;
-export const timelines = ["Just exploring", "Within 3 months", "Ready to start now"] as const;
+// TODO(placeholder): confirm which enquiries you want to receive. Edit this list to change the topic chips on /contact.
+export const topics = ["Early access", "Partnership", "Press", "Join the team", "Something else"] as const;
 
 export type Inquiry = {
   name: string;
   email: string;
   company: string;
-  projectType: string;
-  timeline: string;
+  topic: string;
   message: string;
 };
 
-export type InquiryErrors = Partial<Record<"name" | "email" | "projectType" | "message", string>>;
+export type InquiryErrors = Partial<Record<"name" | "email" | "topic" | "message", string>>;
 
 export function validateInquiry(values: Inquiry): InquiryErrors {
   const errors: InquiryErrors = {};
   if (!values.name.trim()) errors.name = "Please tell us your name.";
   if (!values.email.trim()) errors.email = "Please enter your email so we can reply.";
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) errors.email = "That email doesn't look right. Check for typos.";
-  if (!values.projectType) errors.projectType = "Pick the closest match. You can add detail below.";
-  if (values.message.trim().length < 10) errors.message = "A sentence or two about what you're building helps us reply well.";
+  if (!values.topic) errors.topic = "Pick the closest match. You can add detail below.";
+  if (values.message.trim().length < 10) errors.message = "A sentence or two helps us reply well.";
   return errors;
 }
 
@@ -41,11 +40,10 @@ export function submitInquiry(inquiry: Inquiry): { mailtoHref: string } {
     `Name: ${inquiry.name.trim()}`,
     `Email: ${inquiry.email.trim()}`,
     inquiry.company.trim() && `Company: ${inquiry.company.trim()}`,
-    `Building: ${inquiry.projectType}`,
-    inquiry.timeline && `Timeline: ${inquiry.timeline}`,
+    `Topic: ${inquiry.topic}`,
   ].filter((line): line is string => typeof line === "string");
 
-  const subject = `New project enquiry: ${inquiry.projectType}${inquiry.company.trim() ? ` (${inquiry.company.trim()})` : ""}`;
+  const subject = `Website enquiry: ${inquiry.topic}`;
   const mailtoHref = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
   return { mailtoHref };
 }
